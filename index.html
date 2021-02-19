@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <form class="formWithValidation">
+          <fieldset>
+            <legend>Lesson 8</legend>
+            <div class="box">
+              <label>Name: </label><input type="text" class="name field" />
+            </div>
+            <div class="box">
+              <label>Age: </label><input type="number" class="age field" />
+            </div>
+            <div class="box">
+              <label>Date of Birth: </label>
+              <input type="date" class="dateOfBirth field" />
+            </div>
+            <div class="box">
+              <label>Education: </label>
+              <select class="education field">
+                <option></option>
+                <option>Общее</option>
+                <option>Среднее-специальное</option>
+                <option>Высшее</option>
+              </select>
+            </div>
+            <div class="box">
+              <label>Sex: </label>
+              <p field>
+                <input type="radio" /> Male <input type="radio" /> Female
+              </p>
+            </div>
+            <input type="submit" class="validateBtn" value="validate" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!-- <div class="wrapper flex flex-align-items">
+  <div class="container img-roses transparent">
+    <form class="flex flex-direction-col formWithValidation">
+      <legend class="text-legend mar-b-20">Personal information</legend>
+      <input
+        type="text"
+        placeholder="Username"
+        class="input-direction mar-b-10 haveUserName"
+        type="text"
+        required
+      />
+      <input
+        type="text"
+        placeholder="Age"
+        class="input-direction mar-b-10"
+        type="number"
+        required
+      />
+      <input
+        type="data"
+        placeholder="Date of Birth"
+        class="input-direction mar-b-10"
+        type="number"
+        required
+      />
+      <select class="input-direction mar-b-10" required>
+        <option value="" hidden>Education</option>
+        <option>Высшее</option>
+        <option>Среднее-специальное</option>
+        <option>Общее-базовое</option>
+      </select>
+      <div class="form_toggle">
+        <div class="form_toggle-item item-1">
+          <input id="fid-1" type="radio" name="radio" value="off" checked />
+          <label class="white" for="fid-1">Male</label>
+        </div>
+        <div class="form_toggle-item item-2">
+          <input id="fid-2" type="radio" name="radio" value="on" />
+          <label class="white" for="fid-2">Female</label>
+        </div>
+      </div>
+      <button class="btn-width-height white">Send</button>
+    </form>
+  </div>
+</div> -->
