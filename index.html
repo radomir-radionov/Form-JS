@@ -38,15 +38,36 @@
             </div>
             <div class="box">
               <label>Sex: </label>
-              <p field>
-                <input type="radio" /> Male <input type="radio" /> Female
+              <p>
+                Male
+                <input name="gender" class="gender field" type="radio" />
+                Female
+                <input name="gender" class="gender field" type="radio" />
               </p>
             </div>
-            <input type="submit" class="validateBtn" value="validate" />
+            <input
+              type="submit"
+              class="validateBtn"
+              value="validate"
+              id="myBtn"
+            />
           </fieldset>
         </form>
       </div>
     </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="nameValue"></p>
+        <p class="ageValue"></p>
+        <p class="dateOfBirthValue"></p>
+        <p class="educationValue"></p>
+        <p class="genderValue"></p>
+      </div>
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>
