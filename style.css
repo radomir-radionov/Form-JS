@@ -64,3 +64,12 @@ form {
   text-decoration: none;
   cursor: pointer;
 }
+
+.invalid {
+  border: 2px solid red;
+  color: red;
+}
+
+.valid {
+  color: green;
+}

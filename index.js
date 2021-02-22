@@ -1,28 +1,54 @@
 // lesson 7
-let form = document.querySelector(".formWithValidation");
-let validateBtn = form.querySelector(".validateBtn");
-let name = form.querySelector(".name");
-let age = form.querySelector(".age");
-let dateOfBirth = form.querySelector(".dateOfBirth");
-let education = form.querySelector(".education");
-let gender = form.querySelector(".gender");
-let fields = form.querySelectorAll(".field");
+const form = document.getElementById("form");
+const validateBtn = form.querySelector(".validateBtn");
+const fields = form.querySelectorAll(".field");
+const name = form.querySelector(".name");
+age = form.querySelector(".age");
+dateOfBirth = form.querySelector(".dateOfBirth");
+education = form.querySelector(".education");
+gender = form.querySelector(".gender");
 
-form.addEventListener("submit", function (event) {
+function retrieveFormValue(event) {
   event.preventDefault();
   const nameValue = document.querySelector(".nameValue");
   nameValue.innerHTML = name.value;
   const ageValue = document.querySelector(".ageValue");
   ageValue.innerHTML = age.value;
+
+  // if (typeof age.value === Number) {
+
+  // }
+
   const dateOfBirthValue = document.querySelector(".dateOfBirthValue");
   dateOfBirthValue.innerHTML = dateOfBirth.value;
   const educationValue = document.querySelector(".educationValue");
   educationValue.innerHTML = education.value;
-  const genderValue = document.querySelector('input[name="rate"]:checked')
-    .value;
-  genderValue.innerHTML = gender.value;
+  const genderValue = document.querySelector(".genderValue");
 
-  // document.querySelector('input[name="gender"]:checked').value;
+  function getGenderValue(genderValue) {
+    var chboxTrue;
+    var chboxFalse;
+    chboxTrue = document.getElementById("chboxTrueMale");
+    chboxFalse = document.getElementById("chboxFalseFemale");
+    if (chboxTrueMale.checked) {
+      genderValue.innerHTML = "Male";
+    } else if (chboxFalseFemale.checked) {
+      genderValue.innerHTML = "Female";
+    } else {
+      alert("Выберите пол");
+    }
+  }
+
+  getGenderValue(genderValue);
+
+  const values = {
+    name: name.value,
+    age: age.value,
+    dateOfBirth: dateOfBirth.value,
+    education: education.value,
+    gender: gender.checked,
+  };
+  console.log(values);
 
   let errors = form.querySelectorAll(".error");
   for (let i = 0; i < errors.length; i++) {
@@ -39,15 +65,15 @@ form.addEventListener("submit", function (event) {
       fields[i].after(error);
     }
   }
-  console.log(fields.length);
-});
+}
+
+form.addEventListener("submit", retrieveFormValue);
 
 // -----MODAL-----
 // Get the modal
 var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal

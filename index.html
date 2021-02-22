@@ -14,7 +14,7 @@
   <body>
     <div class="wrapper">
       <div class="container">
-        <form class="formWithValidation">
+        <form id="form">
           <fieldset>
             <legend>Lesson 8</legend>
             <div class="box">
@@ -37,13 +37,24 @@
               </select>
             </div>
             <div class="box">
-              <label>Sex: </label>
-              <p>
+              <label>Sex:<br /> </label>
+              <label>
                 Male
-                <input name="gender" class="gender field" type="radio" />
+                <input
+                  id="chboxTrueMale"
+                  name="gender"
+                  class="gender field"
+                  type="radio" /><br
+              /></label>
+              <label>
                 Female
-                <input name="gender" class="gender field" type="radio" />
-              </p>
+                <input
+                  id="chboxFalseFemale"
+                  name="gender"
+                  class="gender field"
+                  type="radio"
+                />
+              </label>
             </div>
             <input
               type="submit"
