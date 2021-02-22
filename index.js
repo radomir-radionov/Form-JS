@@ -24,7 +24,7 @@ function retrieveFormValue(event) {
   const educationValue = document.querySelector(".educationValue");
   educationValue.innerHTML = education.value;
   const genderValue = document.querySelector(".genderValue");
-
+  // ---Пол---
   function getGenderValue(genderValue) {
     var chboxTrue;
     var chboxFalse;
@@ -40,7 +40,7 @@ function retrieveFormValue(event) {
   }
 
   getGenderValue(genderValue);
-
+  // ---Объект со всеми значениями---
   const values = {
     name: name.value,
     age: age.value,
@@ -50,6 +50,7 @@ function retrieveFormValue(event) {
   };
   console.log(values);
 
+  // ---Ошибка---
   let errors = form.querySelectorAll(".error");
   for (let i = 0; i < errors.length; i++) {
     errors[i].remove();

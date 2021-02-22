@@ -50,26 +50,3 @@ form {
   border: 1px solid #888;
   width: 20%; /* Could be more or less, depending on screen size */
 }
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.invalid {
-  border: 2px solid red;
-  color: red;
-}
-
-.valid {
-  color: green;
-}
