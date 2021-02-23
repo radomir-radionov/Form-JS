@@ -1,32 +1,43 @@
-// lesson 7
 const form = document.getElementById("form");
 const modalContend = document.getElementById("modalContend");
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementById("close");
 const fields = form.querySelectorAll(".field");
+const errors = form.querySelectorAll(".error");
 
 function retrieveFormValue(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name"),
-    age = document.getElementById("age"),
-    dateOfBirth = document.getElementById("dateOfBirth"),
-    education = document.getElementById("education"),
-    gender = document.querySelector('input[name="gender"]:checked').value;
+  const name = document.getElementById("name");
+  const age = document.getElementById("age");
+  const dateOfBirth = document.getElementById("dateOfBirth");
+  const education = document.getElementById("education");
+  const gender = document.querySelector('input[name="gender"]:checked').value;
 
   modalContend.innerHTML = `
-  <span">&times;</span>
-  <p>${name.value}</p>
-  <p>${age.value}</p>
-  <p>${dateOfBirth.value}</p>
-  <p>${education.value}</p>
-  <p>${gender}</p>
+  <p>Name: ${name.value}</p>
+  <p>Age: ${age.value}</p>
+  <p>Date of Birth: ${dateOfBirth.value}</p>
+  <p>Education: ${education.value}</p>
+  <p>Sex: ${gender}</p>
   `;
 
-  // ---Ошибка---
-  let errors = form.querySelectorAll(".error");
-  for (let i = 0; i < errors.length; i++) {
-    errors[i].remove();
-  }
+  removeSameErrors(errors);
+  checkModalOnErrors(fields);
 
+  modal.style.display = "block";
+}
+
+const removeSameErrors = function (errors) {
+  errors.forEach(function (item, i, errors) {
+    if (i < errors.length) {
+      errors[i].remove();
+    }
+  });
+};
+
+const checkModalOnErrors = function (fields) {
   fields.forEach(function (item, i, fields) {
     if (!fields[i].value) {
       let error = document.createElement("div");
@@ -36,25 +47,13 @@ function retrieveFormValue(event) {
       fields[i].after(error);
     }
   });
-}
+};
 
 form.addEventListener("submit", retrieveFormValue);
 
-// -----MODAL-----
-
-const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
-const span = document.getElementById("close");
-
-btn.addEventListener("click", function () {
-  if (fields[0].value) {
-    modal.style.display = "block";
-  }
+span.addEventListener("click", function () {
+  modal.style.display = "none";
 });
-
-// span.addEventListener("click", function () {
-//   modal.style.display = "none";
-// });
 
 window.addEventListener("click", function (event) {
   if (event.target == modal) {

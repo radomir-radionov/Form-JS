@@ -29,7 +29,7 @@ form {
 }
 
 /* The Modal (background) */
-.modal {
+#myModal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -43,10 +43,23 @@ form {
 }
 
 /* Modal Content/Box */
-.modal-content {
+#modalContend {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 10px;
   border: 1px solid #888;
   width: 20%; /* Could be more or less, depending on screen size */
+}
+
+#closeBtn {
+  color: #aaaaaa;
+  float: right;
+  font-weight: bold;
+}
+
+#closeBtn:hover,
+#closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
