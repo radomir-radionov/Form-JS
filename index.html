@@ -18,18 +18,18 @@
           <fieldset>
             <legend>Lesson 8</legend>
             <div class="box">
-              <label>Name: </label><input type="text" class="name field" />
+              <label>Name: </label><input id="name" type="text" class="field" />
             </div>
             <div class="box">
-              <label>Age: </label><input type="number" class="age field" />
+              <label>Age: </label><input id="age" type="number" class="field" />
             </div>
             <div class="box">
               <label>Date of Birth: </label>
-              <input type="date" class="dateOfBirth field" />
+              <input id="dateOfBirth" type="date" class="field" />
             </div>
             <div class="box">
               <label>Education: </label>
-              <select class="education field">
+              <select id="education" class="field">
                 <option></option>
                 <option>Общее</option>
                 <option>Среднее-специальное</option>
@@ -41,27 +41,18 @@
               <label>
                 Male
                 <input
-                  id="chboxTrueMale"
+                  id="gender"
                   name="gender"
-                  class="gender field"
-                  type="radio" /><br
+                  value="Male"
+                  type="radio"
+                  checked /><br
               /></label>
               <label>
                 Female
-                <input
-                  id="chboxFalseFemale"
-                  name="gender"
-                  class="gender field"
-                  type="radio"
-                />
+                <input id="gender" name="gender" value="Female" type="radio" />
               </label>
             </div>
-            <input
-              type="submit"
-              class="validateBtn"
-              value="validate"
-              id="myBtn"
-            />
+            <input type="submit" value="validate" id="myBtn" />
           </fieldset>
         </form>
       </div>
@@ -69,61 +60,8 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p class="nameValue"></p>
-        <p class="ageValue"></p>
-        <p class="dateOfBirthValue"></p>
-        <p class="educationValue"></p>
-        <p class="genderValue"></p>
-      </div>
+      <div id="modalContend" class="modal-content"></div>
     </div>
     <script src="index.js"></script>
   </body>
 </html>
-
-<!-- <div class="wrapper flex flex-align-items">
-  <div class="container img-roses transparent">
-    <form class="flex flex-direction-col formWithValidation">
-      <legend class="text-legend mar-b-20">Personal information</legend>
-      <input
-        type="text"
-        placeholder="Username"
-        class="input-direction mar-b-10 haveUserName"
-        type="text"
-        required
-      />
-      <input
-        type="text"
-        placeholder="Age"
-        class="input-direction mar-b-10"
-        type="number"
-        required
-      />
-      <input
-        type="data"
-        placeholder="Date of Birth"
-        class="input-direction mar-b-10"
-        type="number"
-        required
-      />
-      <select class="input-direction mar-b-10" required>
-        <option value="" hidden>Education</option>
-        <option>Высшее</option>
-        <option>Среднее-специальное</option>
-        <option>Общее-базовое</option>
-      </select>
-      <div class="form_toggle">
-        <div class="form_toggle-item item-1">
-          <input id="fid-1" type="radio" name="radio" value="off" checked />
-          <label class="white" for="fid-1">Male</label>
-        </div>
-        <div class="form_toggle-item item-2">
-          <input id="fid-2" type="radio" name="radio" value="on" />
-          <label class="white" for="fid-2">Female</label>
-        </div>
-      </div>
-      <button class="btn-width-height white">Send</button>
-    </form>
-  </div>
-</div> -->

@@ -1,54 +1,25 @@
 // lesson 7
 const form = document.getElementById("form");
-const validateBtn = form.querySelector(".validateBtn");
+const modalContend = document.getElementById("modalContend");
 const fields = form.querySelectorAll(".field");
-const name = form.querySelector(".name");
-age = form.querySelector(".age");
-dateOfBirth = form.querySelector(".dateOfBirth");
-education = form.querySelector(".education");
-gender = form.querySelector(".gender");
 
 function retrieveFormValue(event) {
   event.preventDefault();
-  const nameValue = document.querySelector(".nameValue");
-  nameValue.innerHTML = name.value;
-  const ageValue = document.querySelector(".ageValue");
-  ageValue.innerHTML = age.value;
 
-  // if (typeof age.value === Number) {
+  const name = document.getElementById("name"),
+    age = document.getElementById("age"),
+    dateOfBirth = document.getElementById("dateOfBirth"),
+    education = document.getElementById("education"),
+    gender = document.querySelector('input[name="gender"]:checked').value;
 
-  // }
-
-  const dateOfBirthValue = document.querySelector(".dateOfBirthValue");
-  dateOfBirthValue.innerHTML = dateOfBirth.value;
-  const educationValue = document.querySelector(".educationValue");
-  educationValue.innerHTML = education.value;
-  const genderValue = document.querySelector(".genderValue");
-  // ---Пол---
-  function getGenderValue(genderValue) {
-    var chboxTrue;
-    var chboxFalse;
-    chboxTrue = document.getElementById("chboxTrueMale");
-    chboxFalse = document.getElementById("chboxFalseFemale");
-    if (chboxTrueMale.checked) {
-      genderValue.innerHTML = "Male";
-    } else if (chboxFalseFemale.checked) {
-      genderValue.innerHTML = "Female";
-    } else {
-      alert("Выберите пол");
-    }
-  }
-
-  getGenderValue(genderValue);
-  // ---Объект со всеми значениями---
-  const values = {
-    name: name.value,
-    age: age.value,
-    dateOfBirth: dateOfBirth.value,
-    education: education.value,
-    gender: gender.checked,
-  };
-  console.log(values);
+  modalContend.innerHTML = `
+  <span">&times;</span>
+  <p>${name.value}</p>
+  <p>${age.value}</p>
+  <p>${dateOfBirth.value}</p>
+  <p>${education.value}</p>
+  <p>${gender}</p>
+  `;
 
   // ---Ошибка---
   let errors = form.querySelectorAll(".error");
@@ -56,40 +27,37 @@ function retrieveFormValue(event) {
     errors[i].remove();
   }
 
-  for (let i = 0; i < fields.length; i++) {
+  fields.forEach(function (item, i, fields) {
     if (!fields[i].value) {
       let error = document.createElement("div");
       error.className = "error";
-      error.style.color = "gray";
-      error.style.border = "2px solid red";
+      error.style.color = "red";
       error.innerHTML = "This field is required";
       fields[i].after(error);
     }
-  }
+  });
 }
 
 form.addEventListener("submit", retrieveFormValue);
 
 // -----MODAL-----
-// Get the modal
-var modal = document.getElementById("myModal");
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
+
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementById("close");
+
+btn.addEventListener("click", function () {
   if (fields[0].value) {
     modal.style.display = "block";
   }
-};
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-};
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+});
+
+// span.addEventListener("click", function () {
+//   modal.style.display = "none";
+// });
+
+window.addEventListener("click", function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-};
+});
