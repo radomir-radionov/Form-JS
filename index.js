@@ -1,10 +1,8 @@
 const form = document.getElementById("form");
 const modalContend = document.getElementById("modalContend");
-const modal = document.getElementById("myModal");
+const modal = document.getElementById("modalWrapper");
 const btn = document.getElementById("myBtn");
-const span = document.getElementById("close");
-const fields = form.querySelectorAll(".field");
-const errors = form.querySelectorAll(".error");
+const span = document.getElementById("closeBtn");
 
 function retrieveFormValue(event) {
   event.preventDefault();
@@ -23,28 +21,28 @@ function retrieveFormValue(event) {
   <p>Sex: ${gender}</p>
   `;
 
-  removeSameErrors(errors);
-  checkModalOnErrors(fields);
+  removeSameErrors();
+  checkModalOnErrors();
 
   modal.style.display = "block";
 }
 
-const removeSameErrors = function (errors) {
+const removeSameErrors = () => {
+  const errors = [...form.querySelectorAll(".error")];
   errors.forEach(function (item, i, errors) {
-    if (i < errors.length) {
-      errors[i].remove();
-    }
+    return errors[i].remove();
   });
 };
 
-const checkModalOnErrors = function (fields) {
+const checkModalOnErrors = () => {
+  const fields = [...form.querySelectorAll(".field")];
   fields.forEach(function (item, i, fields) {
     if (!fields[i].value) {
       let error = document.createElement("div");
       error.className = "error";
       error.style.color = "red";
       error.innerHTML = "This field is required";
-      fields[i].after(error);
+      return fields[i].after(error);
     }
   });
 };

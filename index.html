@@ -18,7 +18,8 @@
           <fieldset>
             <legend>Lesson 8</legend>
             <div class="box">
-              <label>Name: </label><input id="name" type="text" class="field" />
+              <label>Name: </label
+              ><input id="name" type="text" class="field" maxlength="20" />
             </div>
             <div class="box">
               <label>Age: </label><input id="age" type="number" class="field" />
@@ -58,9 +59,11 @@
       </div>
     </div>
     <!-- The Modal -->
-    <div id="myModal">
-      <button id="closeBtn">&times;</button>
-      <div id="modalContend"></div>
+    <div id="modalWrapper">
+      <div id="modalWindow">
+        <span id="closeBtn">&times;</span>
+        <div id="modalContend"></div>
+      </div>
     </div>
     <script src="index.js"></script>
   </body>
