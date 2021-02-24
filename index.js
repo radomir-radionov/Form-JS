@@ -1,13 +1,13 @@
 const form = document.getElementById("form");
 const modal = document.getElementById("modalWrapper");
 const span = document.getElementById("closeBtn");
-const name = document.getElementById("name");
-const age = document.getElementById("age");
-const dateOfBirth = document.getElementById("dateOfBirth");
-const education = document.getElementById("education");
-const gender = document.querySelector('input[name="gender"]:checked').value;
 
 retrieveFormValue = (event) => {
+  const name = document.getElementById("name");
+  const age = document.getElementById("age");
+  const dateOfBirth = document.getElementById("dateOfBirth");
+  const education = document.getElementById("education");
+  const gender = document.querySelector('input[name="gender"]:checked').value;
   const modalContend = document.getElementById("modalContend");
   event.preventDefault();
 
