@@ -1,17 +1,15 @@
 const form = document.getElementById("form");
-const modalContend = document.getElementById("modalContend");
 const modal = document.getElementById("modalWrapper");
-const btn = document.getElementById("myBtn");
 const span = document.getElementById("closeBtn");
+const name = document.getElementById("name");
+const age = document.getElementById("age");
+const dateOfBirth = document.getElementById("dateOfBirth");
+const education = document.getElementById("education");
+const gender = document.querySelector('input[name="gender"]:checked').value;
 
 retrieveFormValue = (event) => {
+  const modalContend = document.getElementById("modalContend");
   event.preventDefault();
-
-  const name = document.getElementById("name");
-  const age = document.getElementById("age");
-  const dateOfBirth = document.getElementById("dateOfBirth");
-  const education = document.getElementById("education");
-  const gender = document.querySelector('input[name="gender"]:checked').value;
 
   modalContend.innerHTML = `
   <p>Name: ${name.value}</p>
@@ -20,25 +18,25 @@ retrieveFormValue = (event) => {
   <p>Education: ${education.value}</p>
   <p>Sex: ${gender}</p>
   `;
-  checkModalOnErrors();
+  if (checkModalOnErrors(name) === true) {
+    modal.style.display = "block";
+  }
 };
 
-const checkModalOnErrors = () => {
+const checkModalOnErrors = (name) => {
   const errors = [...form.querySelectorAll(".error")];
   const fields = [...form.querySelectorAll(".field")];
-
   errors.forEach((item) => {
     item.remove();
   });
-
-  fields.forEach((item) => {
-    if (!item.value) {
-      item.insertAdjacentHTML(
-        "afterEnd",
-        '<div class="error">This field is required</div>'
-      );
-    } else modal.style.display = "block";
-  });
+  if (name.value === "") {
+    name.insertAdjacentHTML(
+      "afterEnd",
+      '<div class="error">This field is required</div>'
+    );
+    return false;
+  }
+  return true;
 };
 
 form.addEventListener("submit", retrieveFormValue);
