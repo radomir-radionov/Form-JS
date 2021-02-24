@@ -44,8 +44,8 @@ form {
   padding: 1rem;
   background-color: white;
   position: absolute;
-  top: 35%;
-  left: 45%;
+  top: 15%;
+  left: 55%;
   margin-right: -50%;
 }
 
@@ -69,4 +69,8 @@ form {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.error {
+  color: red;
 }

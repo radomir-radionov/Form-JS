@@ -4,7 +4,7 @@ const modal = document.getElementById("modalWrapper");
 const btn = document.getElementById("myBtn");
 const span = document.getElementById("closeBtn");
 
-function retrieveFormValue(event) {
+retrieveFormValue = (event) => {
   event.preventDefault();
 
   const name = document.getElementById("name");
@@ -20,40 +20,34 @@ function retrieveFormValue(event) {
   <p>Education: ${education.value}</p>
   <p>Sex: ${gender}</p>
   `;
-
-  removeSameErrors();
   checkModalOnErrors();
-
-  modal.style.display = "block";
-}
-
-const removeSameErrors = () => {
-  const errors = [...form.querySelectorAll(".error")];
-  errors.forEach(function (item, i, errors) {
-    return errors[i].remove();
-  });
 };
 
 const checkModalOnErrors = () => {
+  const errors = [...form.querySelectorAll(".error")];
   const fields = [...form.querySelectorAll(".field")];
-  fields.forEach(function (item, i, fields) {
-    if (!fields[i].value) {
-      let error = document.createElement("div");
-      error.className = "error";
-      error.style.color = "red";
-      error.innerHTML = "This field is required";
-      return fields[i].after(error);
-    }
+
+  errors.forEach((item) => {
+    item.remove();
+  });
+
+  fields.forEach((item) => {
+    if (!item.value) {
+      item.insertAdjacentHTML(
+        "afterEnd",
+        '<div class="error">This field is required</div>'
+      );
+    } else modal.style.display = "block";
   });
 };
 
 form.addEventListener("submit", retrieveFormValue);
 
-span.addEventListener("click", function () {
+span.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-window.addEventListener("click", function (event) {
+window.addEventListener("click", (event) => {
   if (event.target == modal) {
     modal.style.display = "none";
   }
